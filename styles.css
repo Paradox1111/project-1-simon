@@ -5,10 +5,12 @@
     width: 400px;
     margin: auto;
 }
+.quadrant{
+    padding: 25px;
+    border-radius: 25px;
+}
 .quadrant1{
     background: green;
-    padding: 75px;
-    border-radius: 75px;
     border: 5px solid darkgreen;
 }
 .quadrant1:hover{
@@ -17,8 +19,6 @@
 
 .quadrant2{
     background: red;
-    padding: 75px;
-    border-radius: 75px;
     border: 5px solid darkred;
 }
 .quadrant2:hover{
@@ -27,8 +27,6 @@
 
 .quadrant3{
     background: blue;
-    padding: 75px;
-    border-radius: 75px;
     border: 5px solid darkblue;
 }
 .quadrant3:hover{
@@ -37,8 +35,6 @@
 
 .quadrant4{
     background: yellow;
-    padding: 75px;
-    border-radius: 75px;
     border: 5px solid yellowgreen;
 }
 .quadrant4:hover{

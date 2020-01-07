@@ -31,6 +31,8 @@ function handleQuadrant(){
 function handleStart(){
     //if game not already in progress
     if(round >= 1){
+        //set round to 1
+        round = 1
         //start game with quadrant randomizer
         quadrantRandomizer()
     } else {

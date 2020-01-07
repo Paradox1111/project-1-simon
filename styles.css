@@ -1,9 +1,6 @@
-#quadrants:hover{
-    opacity: 0.7;
-}
-#quadrants{
+.quadrants{
     display: grid;
-    grid-template-columns: 150p 150px;
+    grid-template-columns: 200px 200px;
     height: 400px;
     width: 400px;
     margin: auto;
@@ -11,6 +8,39 @@
 .quadrant1{
     background: green;
     padding: 75px;
-    border-radius: 75;
+    border-radius: 75px;
     border: 5px solid darkgreen;
+}
+.quadrant1:hover{
+    opacity: 0.7;
+}
+
+.quadrant2{
+    background: red;
+    padding: 75px;
+    border-radius: 75px;
+    border: 5px solid darkred;
+}
+.quadrant2:hover{
+    opacity: 0.7;
+}
+
+.quadrant3{
+    background: blue;
+    padding: 75px;
+    border-radius: 75px;
+    border: 5px solid darkblue;
+}
+.quadrant3:hover{
+    opacity: 0.7;
+}
+
+.quadrant4{
+    background: yellow;
+    padding: 75px;
+    border-radius: 75px;
+    border: 5px solid yellowgreen;
+}
+.quadrant4:hover{
+    opacity: 0.7;
 }

@@ -1,0 +1,16 @@
+#quadrants:hover{
+    opacity: 0.7;
+}
+#quadrants{
+    display: grid;
+    grid-template-columns: 150p 150px;
+    height: 400px;
+    width: 400px;
+    margin: auto;
+}
+.quadrant1{
+    background: green;
+    padding: 75px;
+    border-radius: 75;
+    border: 5px solid darkgreen;
+}

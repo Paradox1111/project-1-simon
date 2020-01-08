@@ -13,30 +13,18 @@
     background: green;
     border: 5px solid darkgreen;
 }
-.quadrant1:hover{
-    opacity: 0.7;
-}
-
 .quadrant2{
     background: red;
     border: 5px solid darkred;
 }
-.quadrant2:hover{
-    opacity: 0.7;
-}
-
 .quadrant3{
     background: blue;
     border: 5px solid darkblue;
 }
-.quadrant3:hover{
-    opacity: 0.7;
-}
-
 .quadrant4{
     background: yellow;
     border: 5px solid yellowgreen;
 }
-.quadrant4:hover{
-    opacity: 0.7;
+.loss{
+    display: none
 }

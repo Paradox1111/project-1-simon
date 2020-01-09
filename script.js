@@ -17,7 +17,7 @@ const quitBtn = document.querySelector('.quit')
 const lossOverlay = document.querySelector('.loss')
 const scoreDisplay = document.querySelector('.score')
 
-//add event listeners for start, reset, and quadrants
+//add event listeners for start, reset, and quadrant clicks
 gameBoard.addEventListener('click', handleQuadrant)
 startBtn.addEventListener('click', handleStart)
 quitBtn.addEventListener('click', handleReset)
@@ -48,10 +48,10 @@ function handleQuadrant(evt){
             clickCounter = 0;
             scoreDisplay.innerHTML = score
             //Begin the next round after 1.5 sec delay
-            setTimeout(quadrantIterator(), 1500)
+            setTimeout(quadrantIterator, 1500)
         }
     } else { //if quadrant clicked does not match
-        //display loss overlay and 
+        //display loss overlay and reset
         loss()
         handleReset()
     }
@@ -59,14 +59,30 @@ function handleQuadrant(evt){
 
 //reiterate previous quadrants
 function quadrantIterator(){
-    for(let i = 0; i < quadrantArr.length; i++){
-        console.log('iterating ')
-        console.log(quadrantArr[i])
-        quadrantArr[i].style.opacity = '0.4' //shit aint workin
+    // for(let i = 0; i < quadrantArr.length; i++){
+    //     console.log('iterating ')
+    //     console.log(quadrantArr[i])
+    //     quadrantArr[i].style.opacity = '0.4'
+    //     setTimeout(function(){
+    //         console.log(i)
+    //         quadrantArr[i].style.opacity = '1'
+    //     }, (i+1)*1500)
+    // }
+    let i = 0
+    let interval = setInterval(function(){
+        console.log(i)
+        if(quadrantArr[i]){
+            quadrantArr[i].style.opacity = '0.4'
+        }
         setTimeout(function(){
-            quadrantArr[i].style.opacity = '1'
-        }, 1500)
-    }
+            if(!quadrantArr[i]){
+                clearInterval(interval)
+            } else {
+                quadrantArr[i].style.opacity = '1'
+                i++
+            }
+        }, (i+1)*1500)
+    }, 1500)
     //when done: randomize one additional quadrant
     console.log('Randomizing')
     console.log(quadrantArr.length*1500)
@@ -75,46 +91,46 @@ function quadrantIterator(){
 
 //quadrant randomizer
 function quadrantRandomizer(){
-    setTimeout(function(){
     if(quadrantArr.length < round || quadrantArr.length === 0){
-        //illuminate a random quadrant and append it
-        let randomized = Math.random() * 100
-        if(randomized < 25){
-            //highlight
-            greenQuad.style.opacity = '0.4'
-            //then return to normal after 1.5 sec
-            setTimeout(function(){
-                greenQuad.style.opacity = '1'
-            }, 1500)
-            //then push
-            quadrantArr.push(greenQuad)
-        } else if (randomized > 25 && randomized < 50){
-            redQuad.style.opacity = '0.4'
-            setTimeout(function(){
-                redQuad.style.opacity = '1'
-            }, 1500)
-            quadrantArr.push(redQuad)
-        } else if (randomized > 50 && randomized < 75){
-            blueQuad.style.opacity = '0.4'
-            setTimeout(function(){
-                blueQuad.style.opacity = '1'
-            }, 1500)
-            quadrantArr.push(blueQuad)
-        } else if (randomized > 75){
-            yellowQuad.style.opacity = '0.4'
-            setTimeout(function(){
-                yellowQuad.style.opacity = '1'
-            }, 1500)
-            quadrantArr.push(yellowQuad)
-        }
+    //illuminate a random quadrant and append it
+    let randomized = Math.random() * 100
+    if(randomized < 25){
+        //highlight
+        greenQuad.style.opacity = '0.4'
+        //then return to normal after 1.5 sec
+        setTimeout(function(){
+            greenQuad.style.opacity = '1'
+        }, 1500)
+        //then push
+        quadrantArr.push(greenQuad)
+    } else if (randomized >= 25 && randomized < 50){
+        redQuad.style.opacity = '0.4'
+        setTimeout(function(){
+            redQuad.style.opacity = '1'
+        }, 1500)
+        quadrantArr.push(redQuad)
+    } else if (randomized >= 50 && randomized < 75){
+        blueQuad.style.opacity = '0.4'
+        setTimeout(function(){
+            blueQuad.style.opacity = '1'
+        }, 1500)
+        quadrantArr.push(blueQuad)
+    } else if (randomized >= 75){
+         yellowQuad.style.opacity = '0.4'
+        setTimeout(function(){
+            yellowQuad.style.opacity = '1'
+        }, 1500)
+        quadrantArr.push(yellowQuad)
     }
-}, 1500)
+    console.log(quadrantArr)
+}
     //After each quadrant has been illuminated and appended:
     //prompt user to reiterate the sequence
 }
 
 //start btn handler
 function handleStart(){
+    console.log('starting!')
     //if game not already in progress
     if(round < 1){
         //set round to 1

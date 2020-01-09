@@ -59,34 +59,27 @@ function handleQuadrant(evt){
 
 //reiterate previous quadrants
 function quadrantIterator(){
-    // for(let i = 0; i < quadrantArr.length; i++){
-    //     console.log('iterating ')
-    //     console.log(quadrantArr[i])
-    //     quadrantArr[i].style.opacity = '0.4'
-    //     setTimeout(function(){
-    //         console.log(i)
-    //         quadrantArr[i].style.opacity = '1'
-    //     }, (i+1)*1500)
-    // }
     let i = 0
+    let complete = false
     let interval = setInterval(function(){
-        console.log(i)
-        if(quadrantArr[i]){
-            quadrantArr[i].style.opacity = '0.4'
+        if(complete === true){
+            clearInterval(interval)
+            setTimeout(quadrantRandomizer, 1500)
         }
-        setTimeout(function(){
-            if(!quadrantArr[i]){
-                clearInterval(interval)
-            } else {
-                quadrantArr[i].style.opacity = '1'
-                i++
-            }
-        }, (i+1)*1500)
+        complete = highlightQuadrant(i)
+        i++
     }, 1500)
-    //when done: randomize one additional quadrant
-    console.log('Randomizing')
-    console.log(quadrantArr.length*1500)
-    setTimeout(quadrantRandomizer, (quadrantArr.length*1500))
+}
+
+function highlightQuadrant(i){
+    if(quadrantArr[i]){
+        quadrantArr[i].style.opacity = '0.4'
+        setTimeout(function(){
+            quadrantArr[i].style.opacity = '1'
+        }, 1500)
+    } else {
+        return true
+    }
 }
 
 //quadrant randomizer

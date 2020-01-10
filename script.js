@@ -1,7 +1,8 @@
 //Starting game state
-let round = 2;
+let round = 0;
 let score = 0;
 let clickCounter = 0;
+let quadrantArr = [];
 
 //select HTML elements
 const gameBoard = document.querySelector('.quadrants')
@@ -10,7 +11,6 @@ const redQuad = document.querySelector('.quadrant2')
 const blueQuad = document.querySelector('.quadrant3')
 const yellowQuad = document.querySelector('.quadrant4')
 
-let quadrantArr = [greenQuad, greenQuad];
 const tutorial = document.querySelector('.tutorial')
 const startBtn = document.querySelector('.start')
 const quitBtn = document.querySelector('.quit')

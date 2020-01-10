@@ -1,6 +1,5 @@
 //Starting game state
-let quadrantArr = [];
-let round = 0;
+let round = 2;
 let score = 0;
 let clickCounter = 0;
 
@@ -11,6 +10,7 @@ const redQuad = document.querySelector('.quadrant2')
 const blueQuad = document.querySelector('.quadrant3')
 const yellowQuad = document.querySelector('.quadrant4')
 
+let quadrantArr = [greenQuad, greenQuad];
 const tutorial = document.querySelector('.tutorial')
 const startBtn = document.querySelector('.start')
 const quitBtn = document.querySelector('.quit')
@@ -35,8 +35,6 @@ yellowQuad.addEventListener('mouseleave', unHighlight)
 
 function handleQuadrant(evt){
     //if quadrant clicked is equal to current quadrant 
-    console.log(quadrantArr)
-    console.log(quadrantArr[clickCounter], evt.target)
     if(quadrantArr[clickCounter] === evt.target){
         //increment clickCounter
         clickCounter ++;
@@ -62,21 +60,29 @@ function quadrantIterator(){
     let i = 0
     let complete = false
     let interval = setInterval(function(){
+        //if highlightQuadrant returns complete (i.e there are no more values in the array)
         if(complete === true){
+            //clearInterval and randomize one additional quadrant
             clearInterval(interval)
-            setTimeout(quadrantRandomizer, 1500)
+            setTimeout(quadrantRandomizer, 1000)
         }
-        complete = highlightQuadrant(i)
+        //each interval highlight the quadrantArr index i
+        if(quadrantArr[i-1] && quadrantArr[i]===quadrantArr[i-1]){
+            complete = highlightQuadrant(i, 750)
+        } else {
+            complete = highlightQuadrant(i)
+        }
         i++
-    }, 1500)
+    }, 1250)
 }
 
-function highlightQuadrant(i){
+function highlightQuadrant(i, timeout=1000){
+
     if(quadrantArr[i]){
         quadrantArr[i].style.opacity = '0.4'
         setTimeout(function(){
             quadrantArr[i].style.opacity = '1'
-        }, 1500)
+        }, timeout)
     } else {
         return true
     }
@@ -123,11 +129,12 @@ function quadrantRandomizer(){
 
 //start btn handler
 function handleStart(){
-    console.log('starting!')
     //if game not already in progress
     if(round < 1){
         //set round to 1
         round = 1
+        //reset loss overlay
+        lossOverlay.style.display = 'none'
         //start game with quadrant randomizer
         quadrantRandomizer()
     } else {
@@ -142,7 +149,6 @@ function handleReset(){
     clickCounter = 0;
     score = 0;
     scoreDisplay.innerHTML = '0'
-    lossOverlay.style.display = 'none'
     quadrantArr = [];
     round = 0;
 }

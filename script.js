@@ -11,6 +11,7 @@ const redQuad = document.querySelector('.quadrant2')
 const blueQuad = document.querySelector('.quadrant3')
 const yellowQuad = document.querySelector('.quadrant4')
 
+const tutorialBtn = document.querySelector('.tutorial-btn')
 const tutorial = document.querySelector('.tutorial')
 const startBtn = document.querySelector('.start')
 const quitBtn = document.querySelector('.quit')
@@ -21,6 +22,7 @@ const scoreDisplay = document.querySelector('.score')
 gameBoard.addEventListener('click', handleQuadrant)
 startBtn.addEventListener('click', handleStart)
 quitBtn.addEventListener('click', handleReset)
+tutorialBtn.addEventListener('click', toggleTutorial)
 
 //event listeners to highlight quadrants
 greenQuad.addEventListener('mouseenter', highlight)
@@ -45,8 +47,8 @@ function handleQuadrant(evt){
             score++;
             clickCounter = 0;
             scoreDisplay.innerHTML = score
-            //Begin the next round after 1.5 sec delay
-            setTimeout(quadrantIterator, 1500)
+            //Begin the next round after 1 sec delay
+            setTimeout(quadrantIterator, 1000)
         }
     } else { //if quadrant clicked does not match
         //display loss overlay and reset
@@ -64,7 +66,7 @@ function quadrantIterator(){
         if(complete === true){
             //clearInterval and randomize one additional quadrant
             clearInterval(interval)
-            setTimeout(quadrantRandomizer, 1000)
+            setTimeout(quadrantRandomizer, 750)
         }
         //each interval highlight the quadrantArr index i
         if(quadrantArr[i-1] && quadrantArr[i]===quadrantArr[i-1]){
@@ -99,29 +101,28 @@ function quadrantRandomizer(){
         //then return to normal after 1.5 sec
         setTimeout(function(){
             greenQuad.style.opacity = '1'
-        }, 1500)
+        }, 1000)
         //then push
         quadrantArr.push(greenQuad)
     } else if (randomized >= 25 && randomized < 50){
         redQuad.style.opacity = '0.4'
         setTimeout(function(){
             redQuad.style.opacity = '1'
-        }, 1500)
+        }, 1000)
         quadrantArr.push(redQuad)
     } else if (randomized >= 50 && randomized < 75){
         blueQuad.style.opacity = '0.4'
         setTimeout(function(){
             blueQuad.style.opacity = '1'
-        }, 1500)
+        }, 1000)
         quadrantArr.push(blueQuad)
     } else if (randomized >= 75){
          yellowQuad.style.opacity = '0.4'
         setTimeout(function(){
             yellowQuad.style.opacity = '1'
-        }, 1500)
+        }, 1000)
         quadrantArr.push(yellowQuad)
     }
-    console.log(quadrantArr)
 }
     //After each quadrant has been illuminated and appended:
     //prompt user to reiterate the sequence
@@ -164,4 +165,11 @@ function highlight(evt){
 }
  function unHighlight(evt){
     evt.target.style.opacity = '1'
+}
+function toggleTutorial(){
+    if(tutorial.style.display === 'none'){
+        tutorial.style.display = 'block'
+    } else {
+        tutorial.style.display = 'none'
+    }
 }

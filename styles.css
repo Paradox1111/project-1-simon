@@ -28,3 +28,21 @@
 .loss{
     display: none
 }
+.tutorial-btn{
+    padding: 0.4em;
+    font-size: 19px;
+}
+.tutorial{
+    display: none;
+    padding: 0.4em;
+    font-size: 24px;
+}
+.start{
+    padding: .7em .7em;
+    margin-top: 30px;
+    font-size: 19px;
+}
+.quit{
+    padding: .7em .7em;
+    font-size: 19px;
+}

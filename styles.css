@@ -1,48 +1,59 @@
-.quadrants{
+/* Push your CSS further for a more engaging UX/UI. You have a good starting point. Also, try to develop for mobile-first. */
+.quadrants {
     display: grid;
     grid-template-columns: 200px 200px;
     height: 400px;
     width: 400px;
     margin: auto;
 }
-.quadrant{
+
+.quadrant {
     padding: 25px;
     border-radius: 25px;
 }
-.quadrant1{
+
+.quadrant1 {
     background: green;
     border: 5px solid darkgreen;
 }
-.quadrant2{
+
+.quadrant2 {
     background: red;
     border: 5px solid darkred;
 }
-.quadrant3{
+
+.quadrant3 {
     background: blue;
     border: 5px solid darkblue;
 }
-.quadrant4{
+
+.quadrant4 {
     background: yellow;
     border: 5px solid yellowgreen;
 }
-.loss{
+
+.loss {
     display: none
 }
-.tutorial-btn{
+
+.tutorial-btn {
     padding: 0.4em;
     font-size: 19px;
 }
-.tutorial{
+
+.tutorial {
     display: none;
     padding: 0.4em;
     font-size: 24px;
 }
-.start{
+
+.start {
     padding: .7em .7em;
     margin-top: 30px;
     font-size: 19px;
 }
-.quit{
+
+.quit {
     padding: .7em .7em;
     font-size: 19px;
 }

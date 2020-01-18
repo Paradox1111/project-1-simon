@@ -1,48 +1,61 @@
-.quadrants{
-    display: grid;
-    grid-template-columns: 200px 200px;
-    height: 400px;
-    width: 400px;
-    margin: auto;
+body {
+	background-color: cadetblue;
 }
-.quadrant{
-    padding: 25px;
-    border-radius: 25px;
+.quadrants {
+	display: grid;
+	grid-template-columns: 200px 200px;
+	height: 400px;
+	width: 400px;
+	margin: auto;
+	background-color: cornsilk;
+	border-radius: 25px;
 }
-.quadrant1{
-    background: green;
-    border: 5px solid darkgreen;
+.quadrant {
+	padding: 25px;
+	border-radius: 25px;
 }
-.quadrant2{
-    background: red;
-    border: 5px solid darkred;
+.quadrant1 {
+	background: green;
+	border: 5px solid darkgreen;
 }
-.quadrant3{
-    background: blue;
-    border: 5px solid darkblue;
+.quadrant2 {
+	background: red;
+	border: 5px solid darkred;
 }
-.quadrant4{
-    background: yellow;
-    border: 5px solid yellowgreen;
+.quadrant3 {
+	background: blue;
+	border: 5px solid darkblue;
 }
-.loss{
-    display: none
+.quadrant4 {
+	background: yellow;
+	border: 5px solid yellowgreen;
 }
-.tutorial-btn{
-    padding: 0.4em;
-    font-size: 19px;
+.loss {
+	display: none;
 }
-.tutorial{
-    display: none;
-    padding: 0.4em;
-    font-size: 24px;
+.tutorial-btn {
+	padding: 0.4em;
+	font-size: 19px;
 }
-.start{
-    padding: .7em .7em;
-    margin-top: 30px;
-    font-size: 19px;
+.tutorial {
+	display: none;
+	padding: 0.4em;
+	font-size: 24px;
+	color: blue;
 }
-.quit{
-    padding: .7em .7em;
-    font-size: 19px;
+.start {
+	padding: 0.7em 0.7em;
+	margin-top: 30px;
+	font-size: 19px;
+	color: green;
+}
+.quit {
+	padding: 0.7em 0.7em;
+	font-size: 19px;
+	color: red;
+}
+.loss {
+	background-color: red;
+	color: blue;
+	text-align: center;
 }
